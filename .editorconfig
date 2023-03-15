@@ -1,0 +1,17 @@
+﻿root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+
+# CS8601: Possible null reference assignment.
+dotnet_diagnostic.CS8601.severity = none
+
+# CS8603: Possible null reference return.
+dotnet_diagnostic.CS8603.severity = none

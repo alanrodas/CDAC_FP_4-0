@@ -1,0 +1,24 @@
+﻿@using MyACTS.Services
+@using MyACTS.Models.Entities
+@inject IAuthenticationService authService
+
+@if (authService.IsLogged)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @authService.LoggedUser.FullName
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link text-dark" asp-controller="Auth" asp-action="Logout">
+                Logout
+            </a></li>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="btn btn-primary" asp-controller="Auth" asp-action="Login">Login</a>
+    </li>
+}
+

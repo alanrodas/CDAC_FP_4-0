@@ -1,0 +1,52 @@
+@model MyACTS.Models.Entities.Message
+
+@{
+    Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<h3>Messages</h3>
+
+<div class="card bg-white">
+    <div class="card-header">
+        <h4>Details</h4>
+    </div>
+    <form method="post">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Subject" class="control-label"></label>
+                        <input asp-for="Subject" class="form-control" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Body" class="control-label"></label>
+                        <textarea asp-for="Body" class="form-control"></textarea>
+                        <span asp-validation-for="Body" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ActionText" class="control-label"></label>
+                        <input asp-for="ActionText" class="form-control" />
+                        <span asp-validation-for="ActionText" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ActionUrl" class="control-label"></label>
+                        <input asp-for="ActionUrl" class="form-control" />
+                        <span asp-validation-for="ActionUrl" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <input type="submit" value="Save" class="btn btn-success" />
+            <a asp-controller="Messages" asp-action="Index"
+                class="btn btn-primary">Back to List</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

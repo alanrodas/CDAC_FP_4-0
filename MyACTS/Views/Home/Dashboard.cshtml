@@ -1,0 +1,42 @@
+﻿@using MyACTS.Models.Entities
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container text-center">
+    <h3>Messages</h3>
+    <div class="row">
+        @foreach (Message item in ViewBag.Messages)
+        {
+            <div class="col-4 p-3">
+                <div class="card">
+                    <h5 class="card-header">@item.Subject</h5>
+                    <div class="card-body">
+                        <p class="card-text">@item.Body</p>
+                        @if (item.ActionUrl != null)
+                        {
+                            <a href="@item.ActionUrl" class="btn btn-primary">@item.ActionText</a>
+                        }
+                        <a href="#" class="btn btn-danger">Discard</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container text-center">
+    <h3>Services</h3>
+    <div class="row">
+        @foreach (Service item in ViewBag.Services)
+        {
+            <div class="col-2">
+                <a class="btn btn-service-icon" href="@item.Url"
+                   data-bs-toggle="tooltip" data-bs-title="@item.Name">
+                    <img src="@item.ImageUrl" />
+                </a>
+            </div>
+        }
+    </div>
+</div>
